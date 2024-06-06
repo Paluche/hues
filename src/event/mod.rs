@@ -41,6 +41,7 @@ pub enum HueEventData {
     Geolocation(serde_json::Value),
     #[serde(rename = "grouped_light")]
     Group(serde_json::Value),
+    PrivateGroup(serde_json::Value),
     #[serde(rename = "homekit")]
     HomeKit(serde_json::Value),
     Light(serde_json::Value),
