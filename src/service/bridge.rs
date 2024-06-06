@@ -1375,6 +1375,9 @@ fn upsert_to_cache(
                         HueEventData::Group(d) => {
                             Some(Resource::Group(serde_json::from_value(d).unwrap()))
                         }
+                        HueEventData::PrivateGroup(d) => {
+                            Some(Resource::Group(serde_json::from_value(d).unwrap()))
+                        }
                         HueEventData::HomeKit(d) => {
                             Some(Resource::HomeKit(serde_json::from_value(d).unwrap()))
                         }
@@ -1529,6 +1532,9 @@ fn upsert_to_cache(
                                 rid,
                                 rtype: ResourceType::Geolocation,
                             })
+                        }
+                        HueEventData::PrivateGroup(d) => {
+                            todo!("")
                         }
                         HueEventData::Group(d) => {
                             let rid = d.get("id").expect("no id").as_str().unwrap().to_owned();
@@ -1875,6 +1881,9 @@ fn delete_from_cache(cache: &mut MutexGuard<'_, BridgeCache>, data: &Vec<Resourc
             }
             ResourceType::Geolocation => {
                 cache.geolocations.retain(|id, _| !ids.contains(&id));
+            }
+            ResourceType::PrivateGroup => {
+                cache.groups.retain(|id, _| !ids.contains(&id));
             }
             ResourceType::Group => {
                 cache.groups.retain(|id, _| !ids.contains(&id));

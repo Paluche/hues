@@ -83,6 +83,7 @@ pub enum ResourceType {
     Geofence,
     GeofenceClient,
     Geolocation,
+    PrivateGroup,
     #[serde(rename = "grouped_light")]
     Group,
     #[serde(rename = "homekit")]
