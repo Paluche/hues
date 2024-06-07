@@ -321,6 +321,7 @@ pub enum ZoneArchetype {
     KidsBedroom,
     Kitchen,
     LaundryZone,
+    LivingRoom,
     LivingZone,
     Lounge,
     ManCave,
