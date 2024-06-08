@@ -246,8 +246,8 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .behavior_scripts
-            .iter()
-            .map(|(_, data)| BehaviorScript::new(data.clone()))
+            .values()
+            .map(|data| BehaviorScript::new(data.clone()))
             .collect()
     }
 
@@ -273,8 +273,8 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .behavior_instances
-            .iter()
-            .map(|(_, data)| BehaviorInstance::new(&self, data.clone()))
+            .values()
+            .map(|data| BehaviorInstance::new(&self, data.clone()))
             .collect()
     }
 
@@ -329,8 +329,8 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .entertainment_configurations
-            .iter()
-            .map(|(_, data)| EntertainmentConfiguration::new(&self, data.clone()))
+            .values()
+            .map(|data| EntertainmentConfiguration::new(&self, data.clone()))
             .collect()
     }
 
@@ -356,8 +356,8 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .entertainments
-            .iter()
-            .map(|(_, data)| Entertainment::new(data.clone()))
+            .values()
+            .map(|data| Entertainment::new(data.clone()))
             .collect()
     }
 
@@ -405,8 +405,8 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .buttons
-            .iter()
-            .map(|(_, data)| Button::new(data.clone()))
+            .values()
+            .map(|data| Button::new(data.clone()))
             .collect()
     }
 
@@ -428,8 +428,8 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .contacts
-            .iter()
-            .map(|(_, data)| Contact::new(&self, data.clone()))
+            .values()
+            .map(|data| Contact::new(&self, data.clone()))
             .collect()
     }
 
@@ -451,8 +451,8 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .rotaries
-            .iter()
-            .map(|(_, data)| RelativeRotary::new(data.clone()))
+            .values()
+            .map(|data| RelativeRotary::new(data.clone()))
             .collect()
     }
 
@@ -474,8 +474,8 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .geolocations
-            .iter()
-            .map(|(_, data)| Geolocation::new(&self, data.clone()))
+            .values()
+            .map(|data| Geolocation::new(&self, data.clone()))
             .collect()
     }
 
@@ -497,8 +497,8 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .geofence_clients
-            .iter()
-            .map(|(_, data)| GeofenceClient::new(&self, data.clone()))
+            .values()
+            .map(|data| GeofenceClient::new(&self, data.clone()))
             .collect()
     }
 
@@ -550,8 +550,8 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .homekits
-            .iter()
-            .map(|(_, data)| HomeKit::new(&self, data.clone()))
+            .values()
+            .map(|data| HomeKit::new(&self, data.clone()))
             .collect()
     }
 
@@ -573,8 +573,8 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .matters
-            .iter()
-            .map(|(_, data)| Matter::new(&self, data.clone()))
+            .values()
+            .map(|data| Matter::new(&self, data.clone()))
             .collect()
     }
 
@@ -596,8 +596,8 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .matter_fabrics
-            .iter()
-            .map(|(_, data)| MatterFabric::new(data.clone()))
+            .values()
+            .map(|data| MatterFabric::new(data.clone()))
             .collect()
     }
 
@@ -628,8 +628,8 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .devices
-            .iter()
-            .map(|(_, data)| Device::new(&self, data.clone()))
+            .values()
+            .map(|data| Device::new(&self, data.clone()))
             .collect()
     }
 
@@ -660,8 +660,8 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .power
-            .iter()
-            .map(|(_, data)| DevicePower::new(data.clone()))
+            .values()
+            .map(|data| DevicePower::new(data.clone()))
             .collect()
     }
 
@@ -683,8 +683,8 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .groups
-            .iter()
-            .map(|(_, data)| Group::new(&self, data.clone()))
+            .values()
+            .map(|data| Group::new(&self, data.clone()))
             .collect()
     }
 
@@ -706,8 +706,8 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .homes
-            .iter()
-            .map(|(_, data)| Home::new(data.clone()))
+            .values()
+            .map(|data| Home::new(data.clone()))
             .collect()
     }
 
@@ -729,8 +729,8 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .lights
-            .iter()
-            .map(|(_, data)| Light::new(&self, data.clone()))
+            .values()
+            .map(|data| Light::new(&self, data.clone()))
             .collect()
     }
 
@@ -752,8 +752,8 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .motions
-            .iter()
-            .map(|(_, data)| Motion::new(&self, data.clone()))
+            .values()
+            .map(|data| Motion::new(&self, data.clone()))
             .collect()
     }
 
@@ -775,8 +775,8 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .motion_cameras
-            .iter()
-            .map(|(_, data)| CameraMotion::new(&self, data.clone()))
+            .values()
+            .map(|data| CameraMotion::new(&self, data.clone()))
             .collect()
     }
 
@@ -798,8 +798,8 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .rooms
-            .iter()
-            .map(|(_, data)| Room::new(&self, data.clone()))
+            .values()
+            .map(|data| Room::new(&self, data.clone()))
             .collect()
     }
 
@@ -844,8 +844,8 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .scenes
-            .iter()
-            .map(|(_, data)| Scene::new(&self, data.clone()))
+            .values()
+            .map(|data| Scene::new(&self, data.clone()))
             .collect()
     }
 
@@ -892,8 +892,8 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .smart_scenes
-            .iter()
-            .map(|(_, data)| SmartScene::new(&self, data.clone()))
+            .values()
+            .map(|data| SmartScene::new(&self, data.clone()))
             .collect()
     }
 
@@ -941,8 +941,8 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .light_levels
-            .iter()
-            .map(|(_, data)| LightLevel::new(&self, data.clone()))
+            .values()
+            .map(|data| LightLevel::new(&self, data.clone()))
             .collect()
     }
 
@@ -964,8 +964,8 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .temps
-            .iter()
-            .map(|(_, data)| Temperature::new(&self, data.clone()))
+            .values()
+            .map(|data| Temperature::new(&self, data.clone()))
             .collect()
     }
 
@@ -987,8 +987,8 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .zgp_conns
-            .iter()
-            .map(|(_, data)| ZGPConnectivity::new(data.clone()))
+            .values()
+            .map(|data| ZGPConnectivity::new(data.clone()))
             .collect()
     }
 
@@ -1010,8 +1010,8 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .zigbee_conns
-            .iter()
-            .map(|(_, data)| ZigbeeConnectivity::new(&self, data.clone()))
+            .values()
+            .map(|data| ZigbeeConnectivity::new(&self, data.clone()))
             .collect()
     }
 
@@ -1033,8 +1033,8 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .zigbee_dds
-            .iter()
-            .map(|(_, data)| ZigbeeDeviceDiscovery::new(&self, data.clone()))
+            .values()
+            .map(|data| ZigbeeDeviceDiscovery::new(&self, data.clone()))
             .collect()
     }
 
@@ -1056,8 +1056,8 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .zones
-            .iter()
-            .map(|(_, data)| Zone::new(&self, data.clone()))
+            .values()
+            .map(|data| Zone::new(&self, data.clone()))
             .collect()
     }
 
