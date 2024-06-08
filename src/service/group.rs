@@ -34,7 +34,7 @@ impl<'a> Group<'a> {
         self.data
             .on
             .as_ref()
-            .and_then(|on| Some(on.on))
+            .map(|on| on.on)
             .unwrap_or_default()
     }
 
