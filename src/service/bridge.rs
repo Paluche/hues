@@ -1109,22 +1109,12 @@ pub struct TimeZone {
 }
 
 /// Builder structure representing a [Bridge] that is not yet fully configured.
+#[derive(Default)]
 pub struct BridgeBuilder {
     addr: Option<IpAddr>,
     app_key: Option<String>,
     client_key: Option<String>,
     version: Version,
-}
-
-impl Default for BridgeBuilder {
-    fn default() -> Self {
-        BridgeBuilder {
-            addr: None,
-            app_key: None,
-            client_key: None,
-            version: Default::default(),
-        }
-    }
 }
 
 impl BridgeBuilder {

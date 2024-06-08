@@ -174,7 +174,7 @@ pub struct SceneAction {
     pub action: LightAction,
 }
 
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Serialize)]
 pub struct LightAction {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub on: Option<OnState>,
@@ -190,20 +190,6 @@ pub struct LightAction {
     pub effects: Option<SceneEffectState>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dynamics: Option<SceneDynamics>,
-}
-
-impl Default for LightAction {
-    fn default() -> Self {
-        LightAction {
-            on: Some(OnState { on: true }),
-            dimming: None,
-            color: None,
-            color_temperature: None,
-            gradient: None,
-            effects: None,
-            dynamics: None,
-        }
-    }
 }
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
