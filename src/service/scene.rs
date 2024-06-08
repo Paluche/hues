@@ -372,6 +372,12 @@ pub struct Schedule {
     pub recurrence: HashSet<Weekday>,
 }
 
+impl Default for Schedule {
+   fn default() -> Self {
+       Self::new()
+   }
+}
+
 impl Schedule {
     pub fn new() -> Self {
         Schedule {
