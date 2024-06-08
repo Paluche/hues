@@ -208,8 +208,7 @@ impl Bridge {
             .lock()
             .expect("lock cache")
             .data
-            .as_ref()
-            .map(|d| d.clone())
+            .clone()
     }
 
     pub async fn refresh(&self) -> Result<(), HueAPIError> {
