@@ -176,21 +176,22 @@ impl BridgeClient {
         {
             Ok(res) => match res.json::<Vec<super::v1::RegisterResponse>>().await {
                 Ok(successes_or_errors) => {
-                    for item in successes_or_errors {
+                    if let Some(item) = successes_or_errors.into_iter().next() {
                         match item {
                             RegisterResponse::Success { success } => {
                                 self.app_key = success.username;
                                 self.client_key = Some(success.clientkey);
-                                return Ok(&self.app_key);
+                                Ok(&self.app_key)
                             }
                             RegisterResponse::Error { error } => {
-                                return Err(HueAPIError::HueBridgeError(serde_json::Value::from(
+                                Err(HueAPIError::HueBridgeError(serde_json::Value::from(
                                     error.description,
                                 )))
                             }
                         }
+                    } else {
+                        Err(HueAPIError::HueBridgeError("received no events".into()))
                     }
-                    return Err(HueAPIError::HueBridgeError("received no events".into()));
                 }
                 _ => Err(HueAPIError::BadDeserialize),
             },
