@@ -1806,7 +1806,7 @@ fn insert_to_cache(cache: &mut MutexGuard<'_, BridgeCache>, data: Vec<Resource>)
     }
 }
 
-fn delete_from_cache(cache: &mut MutexGuard<'_, BridgeCache>, data: &Vec<ResourceIdentifier>) {
+fn delete_from_cache(cache: &mut MutexGuard<'_, BridgeCache>, data: &[ResourceIdentifier]) {
     let ids_by_type: HashMap<&ResourceType, HashSet<&String>> =
         data.iter().fold(Default::default(), |mut acc, r| {
             if !acc.contains_key(&r.rtype) {
