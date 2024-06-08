@@ -265,7 +265,7 @@ impl Bridge {
             .expect("lock cache")
             .behavior_instances
             .get(&id.into())
-            .map(|data| BehaviorInstance::new(&self, data.clone()))
+            .map(|data| BehaviorInstance::new(self, data.clone()))
     }
 
     pub fn behavior_instances(&self) -> Vec<BehaviorInstance> {
@@ -274,7 +274,7 @@ impl Bridge {
             .expect("lock cache")
             .behavior_instances
             .values()
-            .map(|data| BehaviorInstance::new(&self, data.clone()))
+            .map(|data| BehaviorInstance::new(self, data.clone()))
             .collect()
     }
 
@@ -300,7 +300,7 @@ impl Bridge {
             .expect("lock cache")
             .behavior_instances
             .insert(data.id.clone(), data.clone());
-        Ok(BehaviorInstance::new(&self, data))
+        Ok(BehaviorInstance::new(self, data))
     }
 
     pub async fn delete_behavior_instance(
@@ -321,7 +321,7 @@ impl Bridge {
             .expect("lock cache")
             .entertainment_configurations
             .get(&id.into())
-            .map(|data| EntertainmentConfiguration::new(&self, data.clone()))
+            .map(|data| EntertainmentConfiguration::new(self, data.clone()))
     }
 
     pub fn entertainment_configurations(&self) -> Vec<EntertainmentConfiguration> {
@@ -330,7 +330,7 @@ impl Bridge {
             .expect("lock cache")
             .entertainment_configurations
             .values()
-            .map(|data| EntertainmentConfiguration::new(&self, data.clone()))
+            .map(|data| EntertainmentConfiguration::new(self, data.clone()))
             .collect()
     }
 
@@ -379,7 +379,7 @@ impl Bridge {
             .expect("lock cache")
             .entertainment_configurations
             .insert(data.id.clone(), data.clone());
-        Ok(EntertainmentConfiguration::new(&self, data))
+        Ok(EntertainmentConfiguration::new(self, data))
     }
 
     pub async fn delete_entertainment_configuration(
@@ -420,7 +420,7 @@ impl Bridge {
             .expect("lock cache")
             .contacts
             .get(&id.into())
-            .map(|data| Contact::new(&self, data.clone()))
+            .map(|data| Contact::new(self, data.clone()))
     }
 
     pub fn contacts(&self) -> Vec<Contact> {
@@ -429,7 +429,7 @@ impl Bridge {
             .expect("lock cache")
             .contacts
             .values()
-            .map(|data| Contact::new(&self, data.clone()))
+            .map(|data| Contact::new(self, data.clone()))
             .collect()
     }
 
@@ -466,7 +466,7 @@ impl Bridge {
             .expect("lock cache")
             .geolocations
             .get(&id.into())
-            .map(|data| Geolocation::new(&self, data.clone()))
+            .map(|data| Geolocation::new(self, data.clone()))
     }
 
     pub fn geolocations(&self) -> Vec<Geolocation> {
@@ -475,7 +475,7 @@ impl Bridge {
             .expect("lock cache")
             .geolocations
             .values()
-            .map(|data| Geolocation::new(&self, data.clone()))
+            .map(|data| Geolocation::new(self, data.clone()))
             .collect()
     }
 
@@ -489,7 +489,7 @@ impl Bridge {
             .expect("lock cache")
             .geofence_clients
             .get(&id.into())
-            .map(|data| GeofenceClient::new(&self, data.clone()))
+            .map(|data| GeofenceClient::new(self, data.clone()))
     }
 
     pub fn geofence_clients(&self) -> Vec<GeofenceClient> {
@@ -498,7 +498,7 @@ impl Bridge {
             .expect("lock cache")
             .geofence_clients
             .values()
-            .map(|data| GeofenceClient::new(&self, data.clone()))
+            .map(|data| GeofenceClient::new(self, data.clone()))
             .collect()
     }
 
@@ -524,7 +524,7 @@ impl Bridge {
             .expect("lock cache")
             .geofence_clients
             .insert(data.id.clone(), data.clone());
-        Ok(GeofenceClient::new(&self, data))
+        Ok(GeofenceClient::new(self, data))
     }
 
     pub async fn delete_geofence_client(
@@ -542,7 +542,7 @@ impl Bridge {
             .expect("lock cache")
             .homekits
             .get(&id.into())
-            .map(|data| HomeKit::new(&self, data.clone()))
+            .map(|data| HomeKit::new(self, data.clone()))
     }
 
     pub fn homekits(&self) -> Vec<HomeKit> {
@@ -551,7 +551,7 @@ impl Bridge {
             .expect("lock cache")
             .homekits
             .values()
-            .map(|data| HomeKit::new(&self, data.clone()))
+            .map(|data| HomeKit::new(self, data.clone()))
             .collect()
     }
 
@@ -565,7 +565,7 @@ impl Bridge {
             .expect("lock cache")
             .matters
             .get(&id.into())
-            .map(|data| Matter::new(&self, data.clone()))
+            .map(|data| Matter::new(self, data.clone()))
     }
 
     pub fn matters(&self) -> Vec<Matter> {
@@ -574,7 +574,7 @@ impl Bridge {
             .expect("lock cache")
             .matters
             .values()
-            .map(|data| Matter::new(&self, data.clone()))
+            .map(|data| Matter::new(self, data.clone()))
             .collect()
     }
 
@@ -620,7 +620,7 @@ impl Bridge {
             .expect("lock cache")
             .devices
             .get(&id.into())
-            .map(|data| Device::new(&self, data.clone()))
+            .map(|data| Device::new(self, data.clone()))
     }
 
     pub fn devices(&self) -> Vec<Device> {
@@ -629,7 +629,7 @@ impl Bridge {
             .expect("lock cache")
             .devices
             .values()
-            .map(|data| Device::new(&self, data.clone()))
+            .map(|data| Device::new(self, data.clone()))
             .collect()
     }
 
@@ -675,7 +675,7 @@ impl Bridge {
             .expect("lock cache")
             .groups
             .get(&id.into())
-            .map(|data| Group::new(&self, data.clone()))
+            .map(|data| Group::new(self, data.clone()))
     }
 
     pub fn groups(&self) -> Vec<Group> {
@@ -684,7 +684,7 @@ impl Bridge {
             .expect("lock cache")
             .groups
             .values()
-            .map(|data| Group::new(&self, data.clone()))
+            .map(|data| Group::new(self, data.clone()))
             .collect()
     }
 
@@ -721,7 +721,7 @@ impl Bridge {
             .expect("lock cache")
             .lights
             .get(&id.into())
-            .map(|data| Light::new(&self, data.clone()))
+            .map(|data| Light::new(self, data.clone()))
     }
 
     pub fn lights(&self) -> Vec<Light> {
@@ -730,7 +730,7 @@ impl Bridge {
             .expect("lock cache")
             .lights
             .values()
-            .map(|data| Light::new(&self, data.clone()))
+            .map(|data| Light::new(self, data.clone()))
             .collect()
     }
 
@@ -744,7 +744,7 @@ impl Bridge {
             .expect("lock cache")
             .motions
             .get(&id.into())
-            .map(|data| Motion::new(&self, data.clone()))
+            .map(|data| Motion::new(self, data.clone()))
     }
 
     pub fn motions(&self) -> Vec<Motion> {
@@ -753,7 +753,7 @@ impl Bridge {
             .expect("lock cache")
             .motions
             .values()
-            .map(|data| Motion::new(&self, data.clone()))
+            .map(|data| Motion::new(self, data.clone()))
             .collect()
     }
 
@@ -767,7 +767,7 @@ impl Bridge {
             .expect("lock cache")
             .motion_cameras
             .get(&id.into())
-            .map(|data| CameraMotion::new(&self, data.clone()))
+            .map(|data| CameraMotion::new(self, data.clone()))
     }
 
     pub fn motion_cameras(&self) -> Vec<CameraMotion> {
@@ -776,7 +776,7 @@ impl Bridge {
             .expect("lock cache")
             .motion_cameras
             .values()
-            .map(|data| CameraMotion::new(&self, data.clone()))
+            .map(|data| CameraMotion::new(self, data.clone()))
             .collect()
     }
 
@@ -790,7 +790,7 @@ impl Bridge {
             .expect("lock cache")
             .rooms
             .get(&id.into())
-            .map(|data| Room::new(&self, data.clone()))
+            .map(|data| Room::new(self, data.clone()))
     }
 
     pub fn rooms(&self) -> Vec<Room> {
@@ -799,7 +799,7 @@ impl Bridge {
             .expect("lock cache")
             .rooms
             .values()
-            .map(|data| Room::new(&self, data.clone()))
+            .map(|data| Room::new(self, data.clone()))
             .collect()
     }
 
@@ -818,7 +818,7 @@ impl Bridge {
             .expect("lock cache")
             .rooms
             .insert(data.id.clone(), data.clone());
-        Ok(Room::new(&self, data))
+        Ok(Room::new(self, data))
     }
 
     pub async fn delete_room(
@@ -836,7 +836,7 @@ impl Bridge {
             .expect("lock cache")
             .scenes
             .get(&id.into())
-            .map(|data| Scene::new(&self, data.clone()))
+            .map(|data| Scene::new(self, data.clone()))
     }
 
     pub fn scenes(&self) -> Vec<Scene> {
@@ -845,7 +845,7 @@ impl Bridge {
             .expect("lock cache")
             .scenes
             .values()
-            .map(|data| Scene::new(&self, data.clone()))
+            .map(|data| Scene::new(self, data.clone()))
             .collect()
     }
 
@@ -864,7 +864,7 @@ impl Bridge {
             .expect("lock cache")
             .scenes
             .insert(data.id.clone(), data.clone());
-        Ok(Scene::new(&self, data))
+        Ok(Scene::new(self, data))
     }
 
     // pub async fn update_scene(&mut self, )
@@ -884,7 +884,7 @@ impl Bridge {
             .expect("lock cache")
             .smart_scenes
             .get(&id.into())
-            .map(|data| SmartScene::new(&self, data.clone()))
+            .map(|data| SmartScene::new(self, data.clone()))
     }
 
     pub fn smart_scenes(&self) -> Vec<SmartScene> {
@@ -893,7 +893,7 @@ impl Bridge {
             .expect("lock cache")
             .smart_scenes
             .values()
-            .map(|data| SmartScene::new(&self, data.clone()))
+            .map(|data| SmartScene::new(self, data.clone()))
             .collect()
     }
 
@@ -915,7 +915,7 @@ impl Bridge {
             .expect("lock cache")
             .smart_scenes
             .insert(data.id.clone(), data.clone());
-        Ok(SmartScene::new(&self, data))
+        Ok(SmartScene::new(self, data))
     }
 
     pub async fn delete_smart_scene(
@@ -933,7 +933,7 @@ impl Bridge {
             .expect("lock cache")
             .light_levels
             .get(&id.into())
-            .map(|data| LightLevel::new(&self, data.clone()))
+            .map(|data| LightLevel::new(self, data.clone()))
     }
 
     pub fn light_levels(&self) -> Vec<LightLevel> {
@@ -942,7 +942,7 @@ impl Bridge {
             .expect("lock cache")
             .light_levels
             .values()
-            .map(|data| LightLevel::new(&self, data.clone()))
+            .map(|data| LightLevel::new(self, data.clone()))
             .collect()
     }
 
@@ -956,7 +956,7 @@ impl Bridge {
             .expect("lock cache")
             .temps
             .get(&id.into())
-            .map(|data| Temperature::new(&self, data.clone()))
+            .map(|data| Temperature::new(self, data.clone()))
     }
 
     pub fn temperatures(&self) -> Vec<Temperature> {
@@ -965,7 +965,7 @@ impl Bridge {
             .expect("lock cache")
             .temps
             .values()
-            .map(|data| Temperature::new(&self, data.clone()))
+            .map(|data| Temperature::new(self, data.clone()))
             .collect()
     }
 
@@ -1002,7 +1002,7 @@ impl Bridge {
             .expect("lock cache")
             .zigbee_conns
             .get(&id.into())
-            .map(|data| ZigbeeConnectivity::new(&self, data.clone()))
+            .map(|data| ZigbeeConnectivity::new(self, data.clone()))
     }
 
     pub fn zigbee_connectivities(&self) -> Vec<ZigbeeConnectivity> {
@@ -1011,7 +1011,7 @@ impl Bridge {
             .expect("lock cache")
             .zigbee_conns
             .values()
-            .map(|data| ZigbeeConnectivity::new(&self, data.clone()))
+            .map(|data| ZigbeeConnectivity::new(self, data.clone()))
             .collect()
     }
 
@@ -1025,7 +1025,7 @@ impl Bridge {
             .expect("lock cache")
             .zigbee_dds
             .get(&id.into())
-            .map(|data| ZigbeeDeviceDiscovery::new(&self, data.clone()))
+            .map(|data| ZigbeeDeviceDiscovery::new(self, data.clone()))
     }
 
     pub fn zigbee_device_discoveries(&self) -> Vec<ZigbeeDeviceDiscovery> {
@@ -1034,7 +1034,7 @@ impl Bridge {
             .expect("lock cache")
             .zigbee_dds
             .values()
-            .map(|data| ZigbeeDeviceDiscovery::new(&self, data.clone()))
+            .map(|data| ZigbeeDeviceDiscovery::new(self, data.clone()))
             .collect()
     }
 
@@ -1048,7 +1048,7 @@ impl Bridge {
             .expect("lock cache")
             .zones
             .get(&id.into())
-            .map(|data| Zone::new(&self, data.clone()))
+            .map(|data| Zone::new(self, data.clone()))
     }
 
     pub fn zones(&self) -> Vec<Zone> {
@@ -1057,7 +1057,7 @@ impl Bridge {
             .expect("lock cache")
             .zones
             .values()
-            .map(|data| Zone::new(&self, data.clone()))
+            .map(|data| Zone::new(self, data.clone()))
             .collect()
     }
 
@@ -1076,7 +1076,7 @@ impl Bridge {
             .expect("lock cache")
             .zones
             .insert(data.id.clone(), data.clone());
-        Ok(Zone::new(&self, data))
+        Ok(Zone::new(self, data))
     }
 
     pub async fn delete_zone(
