@@ -19,7 +19,7 @@ use reqwest_eventsource::EventSource;
 #[cfg(feature = "streaming")]
 use rustls::{pki_types::CertificateDer, RootCertStore};
 
-const V2_PREFIX: &'static str = "/clip/v2";
+const V2_PREFIX: &str = "/clip/v2";
 #[allow(dead_code)]
 const UDP_PORT: usize = 2100;
 
