@@ -320,10 +320,8 @@ impl CIEColor {
         if ![3, 4, 6, 7].contains(&len) {
             return Err(ParseColorError::InvalidLength);
         }
-        if [4, 7].contains(&len) {
-            if chars.next() != Some('#') {
-                return Err(ParseColorError::InvalidByte);
-            }
+        if [4, 7].contains(&len) && chars.next() != Some('#') {
+            return Err(ParseColorError::InvalidByte);
         }
 
         match chars.enumerate().try_fold([0u8, 0, 0], |mut acc, (i, c)| {
