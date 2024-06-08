@@ -146,10 +146,7 @@ impl BridgeClient {
                         Err(HueAPIError::HueBridgeError(serde_json::json!(res
                             .errors
                             .into_iter()
-                            .map(|e| serde_json::from_str::<serde_json::Value>(
-                                e.description.as_str().unwrap(),
-                            )
-                            .unwrap())
+                            .map(|e| e.description)
                             .collect::<Vec<_>>())))
                     }
                 }
