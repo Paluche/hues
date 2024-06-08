@@ -156,17 +156,17 @@ impl ColorTempState {
             255.0
         } else {
             let mut temp = t - 60.0;
-            temp = 329.698727446 * (temp.powf(-0.1332047592));
+            temp = 329.698_73 * (temp.powf(-0.133_204_76));
             temp.clamp(0.0, 255.0)
         };
 
         let g = if t <= 66.0 {
             let mut temp = t;
-            temp = 99.4708025861 * temp.ln() - 161.1195681661;
+            temp = 99.470_8 * temp.ln() - 161.119_57;
             temp.clamp(0.0, 255.0)
         } else {
             let mut temp = t - 60.0;
-            temp = 288.1221695283 * temp.powf(-0.0755148492);
+            temp = 288.122_16 * temp.powf(-0.075_514_846);
             temp.clamp(0.0, 255.0)
         };
 
@@ -174,7 +174,7 @@ impl ColorTempState {
             0.0
         } else {
             let mut temp = t - 10.0;
-            temp = 138.5177312231 * temp.ln() - 305.0447927307;
+            temp = 138.517_73 * temp.ln() - 305.044_8;
             temp.clamp(0.0, 255.0)
         };
 
@@ -274,7 +274,7 @@ impl CIEColor {
 
         let mut r = xx * 1.656492 - yy * 0.354851 - zz * 0.255038;
         let mut g = -xx * 0.707196 + yy * 1.655397 + zz * 0.036152;
-        let mut b = xx * 0.051713 - yy * 0.121364 + zz * 1.011530;
+        let mut b = xx * 0.051713 - yy * 0.121364 + zz * 1.011_53;
 
         r = if r <= 0.0031308 {
             12.92 * r
