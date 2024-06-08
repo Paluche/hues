@@ -117,10 +117,8 @@ impl Bridge {
             loop {
                 if first_tick {
                     first_tick = false;
-                } else {
-                    if let Ok(data) = api.get_resources().await {
+                } else if let Ok(data) = api.get_resources().await {
                         insert_to_cache(&mut cache.lock().unwrap(), data)
-                    }
                 }
                 interval.tick().await;
             }
