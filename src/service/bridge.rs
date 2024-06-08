@@ -1134,7 +1134,7 @@ impl BridgeBuilder {
 
         match reqwest::get("https://discovery.meethue.com").await {
             Ok(res) => match res.json::<Vec<Discovery>>().await {
-                Ok(devs) => match devs.get(0) {
+                Ok(devs) => match devs.first() {
                     Some(dev) => Ok(BridgeBuilder {
                         addr: Some(dev.internalipaddress),
                         ..Default::default()
