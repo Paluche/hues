@@ -312,12 +312,9 @@ impl CIEColor {
         let mut chars = str.chars();
 
         fn parse_char(c: char) -> Result<u8, ParseColorError> {
-            match c {
-                digit if c >= '0' && c <= '9' => Ok(digit as u8 - 48),
-                upper if c >= 'A' && c <= 'F' => Ok(upper as u8 - 55),
-                lower if c >= 'a' && c <= 'f' => Ok(lower as u8 - 87),
-                _ => Err(ParseColorError::InvalidByte),
-            }
+            c
+                .to_digit(16)
+                .map_or(Err(ParseColorError::InvalidByte), |v| Ok(v as u8))
         }
 
         if ![3, 4, 6, 7].contains(&len) {
