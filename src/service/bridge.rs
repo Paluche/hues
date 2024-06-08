@@ -1146,7 +1146,7 @@ impl BridgeBuilder {
             Ok(res) => match res.json::<Vec<Discovery>>().await {
                 Ok(devs) => match devs.get(0) {
                     Some(dev) => Ok(BridgeBuilder {
-                        addr: Some(dev.internalipaddress.into()),
+                        addr: Some(dev.internalipaddress),
                         ..Default::default()
                     }),
                     _ => Err(BridgeDiscoveryError::NotFound),

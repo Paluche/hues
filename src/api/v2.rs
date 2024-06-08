@@ -412,7 +412,7 @@ impl BridgeClient {
             .make_request::<serde_json::Value, Vec<ResourceIdentifier>>(
                 url,
                 Method::POST,
-                Some(payload.into()),
+                Some(payload),
             )
             .await?;
         match rids.into_iter().nth(0) {
@@ -462,7 +462,7 @@ impl BridgeClient {
             .make_request::<serde_json::Value, Vec<ResourceIdentifier>>(
                 url,
                 Method::POST,
-                Some(payload.into()),
+                Some(payload),
             )
             .await?;
         match rids.into_iter().nth(0) {
@@ -606,7 +606,7 @@ impl BridgeClient {
             .make_request::<serde_json::Value, Vec<ResourceIdentifier>>(
                 url,
                 Method::POST,
-                Some(payload.into()),
+                Some(payload),
             )
             .await?;
         match rids.into_iter().nth(0) {
