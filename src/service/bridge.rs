@@ -1808,7 +1808,7 @@ fn insert_to_cache(cache: &mut MutexGuard<'_, BridgeCache>, data: Vec<Resource>)
 
 fn delete_from_cache(cache: &mut MutexGuard<'_, BridgeCache>, data: &Vec<ResourceIdentifier>) {
     let ids_by_type: HashMap<&ResourceType, HashSet<&String>> =
-        data.into_iter().fold(Default::default(), |mut acc, r| {
+        data.iter().fold(Default::default(), |mut acc, r| {
             if !acc.contains_key(&r.rtype) {
                 acc.insert(&r.rtype, Default::default());
             }
